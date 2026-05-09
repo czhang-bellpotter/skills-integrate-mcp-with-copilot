@@ -8,6 +8,15 @@
   </head>
   <body>
     <header>
+      <div class="user-menu">
+        <button id="user-menu-toggle" class="icon-button" type="button" aria-label="Open teacher menu">
+          <span aria-hidden="true">👤</span>
+        </button>
+        <div id="user-menu-panel" class="user-menu-panel hidden">
+          <p id="auth-status-text">Viewing as student</p>
+          <button id="auth-action-button" type="button">Teacher Login</button>
+        </div>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
@@ -22,8 +31,11 @@
       </section>
 
       <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
+        <h3>Teacher Registration Controls</h3>
+        <p id="teacher-gate-message" class="info-banner">
+          Teachers can log in from the user menu to register or unregister students.
+        </p>
+        <form id="signup-form" class="hidden">
           <div class="form-group">
             <label for="email">Student Email:</label>
             <input type="email" id="email" required placeholder="your-email@mergington.edu" />
@@ -40,6 +52,24 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <div id="login-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+      <div class="modal-content">
+        <button id="close-login-modal" class="modal-close" type="button" aria-label="Close login dialog">×</button>
+        <h3 id="login-modal-title">Teacher Login</h3>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required autocomplete="current-password" />
+          </div>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+    </div>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
